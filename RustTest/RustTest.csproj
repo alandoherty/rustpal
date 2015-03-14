@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{88F33D5F-68C1-4A6E-89E6-93AC35640335}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RustTest</RootNamespace>
+    <AssemblyName>RustPal</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>RustTest.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Config.cs" />
+    <Compile Include="Controls\Button.cs" />
+    <Compile Include="Controls\Context.cs" />
+    <Compile Include="Controls\Control.cs" />
+    <Compile Include="Controls\Graphic.cs" />
+    <Compile Include="Controls\Map.cs" />
+    <Compile Include="Render\GuiSystem.cs" />
+    <Compile Include="Entities\Backpack.cs" />
+    <Compile Include="Entities\ConsoleManager.cs" />
+    <Compile Include="Entities\Entity.cs" />
+    <Compile Include="Entities\EntityType.cs" />
+    <Compile Include="Entities\IEntity.cs" />
+    <Compile Include="Entities\SkyManager.cs" />
+    <Compile Include="Entities\StructureMaster.cs" />
+    <Compile Include="Entities\Weapon.cs" />
+    <Compile Include="Entities\Wildlife.cs" />
+    <Compile Include="Logger.cs" />
+    <Compile Include="Math\Angle2.cs" />
+    <Compile Include="Math\Mathf.cs" />
+    <Compile Include="Entities\Player.cs" />
+    <Compile Include="Math\MathUtils.cs" />
+    <Compile Include="Math\Vector2f.cs" />
+    <Compile Include="Net\BufferedSession.cs" />
+    <Compile Include="Net\PacketRPC.cs" />
+    <Compile Include="Net\Payloads\BufferedRPCPayload.cs" />
+    <Compile Include="Net\Payloads\LinkPayload.cs" />
+    <Compile Include="Net\RPC\RPCConnect.cs" />
+    <Compile Include="Net\RPC\RPCDestroy.cs" />
+    <Compile Include="Net\RPC\RPCGeneric.cs" />
+    <Compile Include="Net\RPC\RPCInstantiate.cs" />
+    <Compile Include="Net\RPC\RPCState.cs" />
+    <Compile Include="Net\RPC\RPCUser.cs" />
+    <Compile Include="ProxyContext.cs" />
+    <Compile Include="Net\PacketPayload.cs" />
+    <Compile Include="Net\ULinkStream.cs" />
+    <Compile Include="Net\Packet.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Render\Texture.cs" />
+    <Compile Include="RustMap.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RustMap.Designer.cs">
+      <DependentUpon>RustMap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Math\Vector3f.cs" />
+    <Compile Include="Net\PacketStream.cs" />
+    <Compile Include="Net\Payloads\RPCPayload.cs" />
+    <Compile Include="Controls\Window.cs" />
+    <Compile Include="WindowOld.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WindowOld.Designer.cs">
+      <DependentUpon>WindowOld.cs</DependentUpon>
+    </Compile>
+    <Compile Include="World.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Proxy.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RustMap.resx">
+      <DependentUpon>RustMap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WindowOld.resx">
+      <DependentUpon>WindowOld.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entities\ServerManagement.cs" />
+    <Compile Include="Entities\Client.cs" />
+    <None Include="packages.config" />
+    <None Include="Resources\RustMap.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SDL2-CS\SDL2-CS.csproj">
+      <Project>{85480198-8711-4355-830e-72fd794ad3f6}</Project>
+      <Name>SDL2-CS</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
